@@ -1,0 +1,21 @@
+# DATA FOR MASTER PROBLEM ETQ
+
+param NLpool := 2;
+param NPpool := 2;
+param NSpool := 2;
+
+set LPOOL := 1 2 ;
+set PPOOL := 1 2 ;
+set SPOOL := 1 2 ;
+
+param NQ := 3 ;
+
+set PDS := 1 2 3 4 5 6;
+
+param KL := 1 300 2 240 ; #monthly ownership costs of each pool
+param KP := 1 600 2 650 ;
+param RS := 1 100 2 120 ; #this one will be a revenue from sublease
+
+#param F ;
+#param seas := 1 0.25 2 0.40 3 0.35;
+

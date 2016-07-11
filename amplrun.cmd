@@ -1,0 +1,12 @@
+#reset ; 
+#shell "echo %TIME%" ; 
+#commands HorizonModel3a.run > horizonoutput3009 ; 
+#shell "echo %TIME%" ;
+#reset ;
+#shell "echo %TIME%" ;
+#commands HorizonModelEOQ3a.run > horizonoutputEOQ30095 ; 
+#shell "echo %TIME%" ;
+reset ;
+shell "echo %TIME%" ;
+commands HorizonModelSM3_3a.run > horizonoutputSM3_3003 ; 
+shell "echo %TIME%" ;

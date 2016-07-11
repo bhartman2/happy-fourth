@@ -1,0 +1,36 @@
+/* data for timemodel
+*/
+
+set HORIZON := 1 2 3 4 5 ;
+set CARS := Leased, Purchased, Subleased_L, Subleased_P ; 
+set CHANGES := nl, np, rl, rp, sl, sp, cl, dp ;
+
+param Forecast := 
+1	400
+2	300
+3	250
+4	200
+5	325
+;
+param Majorcost := 
+1	1000
+2   1100
+3   1100
+4   1200
+5   1250
+;
+param Minorcost : Leased Purchased Subleased_L Subleased_P := 
+1					10700	10500	  8000		 6000
+2					10700	10500	  8000		 6000
+3					10700	10500	  8000		 6000
+4					10700	10500	  8000		 6000
+5					10700	10500	  8000		 6000
+;
+param Holdcost: Leased Purchased Subleased_L Subleased_P := 
+1					500		700		  300		 500
+2					500		700		  300		 500
+3					500		700		  300		 500
+4					500		700		  300		 500
+5					500		700		  300		 500
+; 
+

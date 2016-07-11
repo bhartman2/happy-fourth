@@ -1,0 +1,29 @@
+/* Ethanol Transport Data Simple version
+*/
+#param F_demand := 200 ; #Forecasted demand in carloads, not needed in recourse model
+param E_demand := 100  ; #Realized demand in carloads
+param Mmax := 50 ; #max length of a unit train
+param Mmin := 20 ; #min length of a unit train
+param Nmax :=  5 ; #E_demand/Mmin  ;
+param Nmin := 0 ; #E_demand/Mmax ;
+
+set TRAINS := 1 2 3 4 5 ; #no of hypothetical trains
+
+#given number of cars
+param L ;
+param P ;
+param S ; #starting no of L, P, S cars
+#costs of car types
+param CL := 10 ;
+param CP := 9 ;
+param CO := 30 ;
+#costs of car types
+param CQ := 50 ; #costs of unused car (and setup cost of unit train not here)
+param: CY := 
+1 1
+2 2
+3 3
+4 4
+5 5
+ ; #ordering cost for trains
+

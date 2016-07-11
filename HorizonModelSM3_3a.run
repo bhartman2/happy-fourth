@@ -1,0 +1,554 @@
+#script for running HorizonModel and all others 3
+# This is a version of 3a which does the Silvefr Meal period 3 optimization.
+/* 
+attempt to include decision about when to order cars
+simply inserts horizon 0 based on average of the horizon forecasts
+This version uses the initial value 69 for periods 1 and 2, and then 
+shifts to optimum for period 3 , keeps it for 4 and 5.
+
+3a include end report of first (searchcount=2) result after all horizons run.
+*/
+
+load amplgsl.dll;
+function gsl_cdf_poisson_P;
+option solver cplex;
+option solver_msg 0;
+
+model EthanolTransportStageModel.mod;
+data EthanolTransportStageData.dat;
+
+model ETQ.mod;
+data ETQ.dat;
+
+#model HorizonModel.mod ;
+#data HorizonModel.dat ;
+
+problem Recourse: XL,XP,O,Q,N,Y,RCost,
+	notrains, mintrains, maxtrains, trainmin, trainmax, useallcars,
+	outsource, Lcars, Pcars
+	;
+
+problem Quarter: La, Pa, Sa, Lop, Pop, Sop, Qcost,
+	lcars, pcars, scars, slim, cars, totcars
+	; 
+	option relax_integrality 1;	
+	
+param seas {PDS} ;
+let seas[1] := .20 ; let seas[2] := .30 ; let seas[3] := .10 ;
+let seas[4] := .15 ; let seas[5] := .10 ; let seas[6] := .15 ;
+
+param Qcostold; let Qcostold := Infinity ;
+param Qcostmin; let Qcostmin := Infinity ;
+param Idlecostold ; let Idlecostold := Infinity ;
+param Outsourcecostold ; let Outsourcecostold := Infinity ;
+
+param Linit; param Pinit; param Sinit;
+let Linit := 69 ; let Pinit := 0 ; let Sinit := 5 ; #initial values
+param LPBound; param SBound;
+# parameters for selecting proper output 
+param down; param up; param down2 ; param up2 ; param downfirst ;
+
+# define trip periods
+let PDS := 1 .. 6 by 1;
+# define horizons for long term planning
+# horizon 0 is consistent with the EOQ model for not so lumpy demand
+set HORIZON := { 0 .. 5 } ; #horizon 0 makes a run with a forecast of the average of horizon periods from 1 up
+set CARS := { "Leased", "Purchased", "Subleased_L", "Subleased_P" }  ;
+set CHANGES := { "al", "ap", "rl", "rp", "sl", "sp", "cl", "dp" } ;
+
+param nh := card(HORIZON) ; #calculate number of horizons
+param Forecast {HORIZON} ; #forecast
+param Majorcost {HORIZON} ; #cost of any change, one time
+param Minorcost {HORIZON, CARS} ; #cost of a change of a particular type
+param Holdcost { HORIZON, CARS } ; #cost to hold onto a car per quarter
+
+# data for horizon model
+data ;
+param Forecast := 
+0	295
+1	400
+2	300
+3	250
+4	200
+5	325
+
+;
+param Majorcost := 
+0	1000
+1	1000
+2   1100
+3   1100
+4   1200
+5   1250
+;
+param Minorcost : Leased Purchased Subleased_L Subleased_P := 
+0					10700	10500	  8000		 6000
+1					10700	10500	  8000		 6000
+2					10700	10500	  8000		 6000
+3					10700	10500	  8000		 6000
+4					10700	10500	  8000		 6000
+5					10700	10500	  8000		 6000
+;
+param Holdcost: Leased Purchased Subleased_L Subleased_P := 
+0					500		700		  300		 500
+1					500		700		  300		 500
+2					500		700		  300		 500
+3					500		700		  300		 500
+4					500		700		  300		 500
+5					500		700		  300		 500
+; 
+end data ;
+
+ 
+# parameters for the horizon model
+param Acceptable_Idle_rate default 0.10 ; #10%
+param Acceptable_Outsource_rate default 0.10 ; #10%
+
+param Expected_Outsource { HORIZON } ; #this to be passed in
+param Expected_Idle {HORIZON} ; #this to be passed in
+param Expected_Outsource_Cost {HORIZON} ; #to be passed in
+param Expected_Idle_Cost {HORIZON} ; #to be passed in
+param Nocars { HORIZON, CARS } ; # this might be passed in by quarter
+param Combined_Cost {HORIZON} ; #passed in by period
+param Expected_Recourse_Cost {HORIZON} ; #passed in by period
+
+#########################run some horizon periods
+
+# scheduling sets and parameters for input and oputput
+set EDR;
+param Pr {EDR} ;
+param PPr {EDR} ;
+param PPr_mean ;
+param PPr_trunc_const ;
+param edr_obj {EDR} ;
+param edr_dist {EDR} ;
+param Expected_Cost {PDS} ;
+param Expected_Q {PDS}; param Expected_O {PDS};
+param ECQ {PDS} ; param ECO {PDS} ;
+# scheduling result variables
+param Recourse_Costs ;
+param Netmastercost ;
+param Combinedcost ;
+#Minimum parameters
+param MinCombinedcost default Infinity ;
+param MinLPB default 0; param MinSB default 0;
+param MinL default 0 ; param MinP default 0 ; param MinS default 0 ;
+param MinEQ {PDS} default 0 ; param MinEO {PDS} default 0 ;
+param MinECQ {PDS} default 0 ; param MinEOQ {PDS} default 0 ;
+param MinExpectedCost {PDS} default 0 ;
+param MinIdleCars default 0 ;
+param MinOutsourceCars default 0 ;
+param MinIdleCosts default 0 ;
+param MinOutsourceCosts default 0 ;	
+
+param FirstCombinedcost {HORIZON} default Infinity ;
+param FirstLPB  {HORIZON} default 0; param FirstSB  {HORIZON} default 0;
+param FirstL  {HORIZON} default 0 ; param FirstP  {HORIZON} default 0 ; param FirstS  {HORIZON} default 0 ;
+param FirstEQ {PDS} default 0 ; param FirstEO {PDS} default 0 ;
+param FirstECQ {PDS} default 0 ; param FirstEOQ {PDS} default 0 ;
+param FirstExpectedCost {PDS} default 0 ;
+param FirstIdleCars  {HORIZON} default 0 ;
+param FirstOutsourceCars  {HORIZON} default 0 ;
+param FirstIdleCosts  {HORIZON} default 0 ;
+param FirstOutsourceCosts  {HORIZON} default 0 ;	
+param FirstRecourse_Costs  {HORIZON} default 0 ;
+
+#parameters for idle/outsource costs and cars
+param Idle_Costs ; param Outsource_Costs ;
+param Idle_Cars ; param Outsource_Cars ;
+
+param edr_O {EDR};
+param edr_Q {EDR};
+param edr_CO {EDR} ; param edr_CQ {EDR} ;
+param edr_XP {EDR,1..5}; param edr_XL {EDR,1..5};
+param Emin := 10 ; param Emax := 150 ; param Estep := 1 ;
+
+param searchcount default 0 ; # counts the no of steps in the search
+
+# outer loop over all time periods in the HORIZON
+for {h in HORIZON} {
+	printf "Forecast for QTR: %d = %d\n", h, Forecast[h];
+	let F := Forecast[h] ;
+
+	let Fc := F ;
+
+	# set up the starting point; 
+	# for EOQ it is to always start with the initial value from h = 1
+	if ( h <= 3 ) then { #this is for 0
+		let L := Linit ;
+		let P := Pinit ;
+		let S := Sinit ;
+		let LPBound := Linit + Pinit ; 	
+		let SBound := Sinit ;
+	}
+	if ( h >= 4 ) then { 
+		let L := Nocars[ 3, 'Leased' ] ;
+		let P := Nocars[ 3, 'Purchased' ] ; 
+		let S := Nocars[ 3, 'Subleased_L' ] ;
+		let LPBound := L + P ; 	
+		let SBound := S ;
+	}
+	# else { #lets us start over with the result from horizon 0 dont ever do this
+		# let L := Nocars[ 0, 'Leased' ] ;
+		# let P := Nocars[ 0, 'Purchased' ] ; 
+		# let S := Nocars[ 0, 'Subleased_L' ] ;
+		# let L := MinL ;
+		# let P := MinP ;
+		# let S := MinS ;
+		# let LPBound := L + P ; 	
+		# let SBound := S ;
+	# } 
+	#these are the internal bounds in the Recourse Scheduling model
+	let LPB := LPBound ;
+ 	let SB := SBound ;
+	
+	#these are control variables for the break point when the optimum for the period has been located. 
+	let down := 0 ; let up := 0 ; let down2 := 0 ; let up2 := 0 ; 
+	let downfirst := 0 ;
+	# this is a control for reporting specific results
+	
+	# initialize variables to hold the optimum for the period
+	let MinCombinedcost := Infinity ;
+	let MinLPB := 0 ; let MinSB := 0 ;
+	let MinL := 0 ; let MinP := 0 ; let MinS := 0 ;
+ 	let MinIdleCars := 0 ;
+	let MinOutsourceCars := 0 ;
+	let MinIdleCosts := 0 ;
+	let MinOutsourceCosts := 0 ;
+	
+	# initialize variables to hold the optimum for the period
+	let FirstCombinedcost[ h ] := Infinity ;
+	let FirstLPB [ h ] := 0 ; let FirstSB[ h ] := 0 ;
+	let FirstL [ h ] := 0 ; let FirstP [ h ] := 0 ; let FirstS [ h ] := 0 ;
+	let FirstIdleCars [ h ] := 0 ;
+	let FirstOutsourceCars [ h ] := 0 ;
+	let FirstIdleCosts [ h ] := 0 ;
+	let FirstOutsourceCosts [ h ] := 0 ;
+	let FirstRecourse_Costs [ h ] := 0 ;
+
+	
+	# initialize variables to hold some costs for the period, used for testing for the min
+	let Combinedcost := Infinity ;
+	let Netmastercost := Infinity ;
+
+	# initialize variables to hold optimum values which are averages for each schedule trip
+	for {i in PDS} {
+		let MinEQ[i] := 0 ;
+		let MinEO[i] := 0 ;
+		let MinECQ[i] := 0 ;
+		let MinEOQ[i] := 0 ;
+		let MinExpectedCost[i] := 0 ; 
+	}
+	
+	# start the algorithm for a specific horizon period
+	printf "BEGIN RUN for horizon %d with Forecast %d *****************************************************\n", h, Fc ;
+	
+	# count the number of steps in the search, can be used to find a specific one
+	let searchcount := 0 ; # initialize it here
+	#major repeat of the subproblem followed by master
+	# the repeat loop searches for the optimal number of cars by adjusting the bounds
+	repeat {
+		let searchcount := searchcount + 1 ; #count the next step
+		printf "%20s \n", "Starting Scheduling Run" ;
+		# run Scheduling (Recourse) for all trip PDS (6) for all possible demands to get expected values
+		for {q in PDS} {
+			let EDQ[q] := F*seas[q];	#this is the demand in the schedule trip
+			let EDR := Emin .. Emax by Estep ; #these are the possible demands to get the expectations
+			for {i in EDR}  {
+				# set sample demand
+				let E_demand := i;
+				# compute stochastic weights of each demand level,  use appropriate gsl function
+				let PPr_trunc_const := gsl_cdf_poisson_P(Emax,EDQ[q]) - gsl_cdf_poisson_P(Emin-1,EDQ[q]) ;
+				let PPr[i] := ( gsl_cdf_poisson_P(i,EDQ[q]) - gsl_cdf_poisson_P(i-1,EDQ[q]) ) / PPr_trunc_const;
+				
+				# scheduling; write result in scratchfile to speed up process.
+				solve Recourse > scratchfile.out;
+				
+				# compute weighted values for the sample demand 
+				let edr_obj[i] := RCost ;
+				let edr_dist[i] := edr_obj[i] * PPr[i] ;
+				let edr_O[i] := O*PPr[i] ;
+				let edr_Q[i] := Q*PPr[i];
+				let edr_CO[i] := CO*edr_O[i] ;
+				let edr_CQ[i] := CQ*edr_Q[i] ;
+				# record the no of purchased and leased in each of the 5 categories needed for the master model
+				for {j in 1..5} {
+					let edr_XP[i,j] := XP[j]; let edr_XL[i,j] := XL[j];
+				}
+			}
+			# calculate some key expected values of cost for qth trip 
+			let Expected_Cost[q]  :=  sum {i in EDR} edr_dist[i]; #overall expected cost
+			# expected number of out sourced (O) and idle (Q) cars
+			let Expected_Q[q] := sum {i in EDR} edr_Q[i] ;
+			let Expected_O[q] := sum {i in EDR} edr_O[i] ;
+			# expected cost of outsourced and idle cars
+			let ECQ[q] := sum {i in EDR} edr_CQ[i] ;
+			let ECO[q] := sum {i in EDR} edr_CO[i] ;
+/* 			print the results if we want to see it on the console. 
+			printf "%5s %2d %20s %4d %4d %4d %9.2f %9.2f %9.2f %9.2f %10s %10.3f %3.2f\n", 
+			  "q=",q,"(L P S EQ EO ECQ ECO)=",L, P, S, 
+			  Expected_Q[q],Expected_O[q],ECQ[q],ECO[q],
+			 "ERcost=",Expected_Cost[q], seas[q] ;
+ */	
+		} # end of loop over PDS q
+		
+		# calculate key values to use later on in computing the best number for horizon
+		let Recourse_Costs := sum {q in PDS} Expected_Cost[q] ;
+		let Idle_Cars := sum {q in PDS} Expected_Q[q] ;
+		let Outsource_Cars := sum {q in PDS} Expected_O[q] ;
+		let Idle_Costs := sum {q in PDS} ECQ[q] ;
+		let Outsource_Costs := sum {q in PDS} ECO[q] ;
+		let Combinedcost := Netmastercost + Recourse_Costs ;
+		# display some of these values in a nice line or two
+		# uncomment if you want to see these after each schedule model run
+/* 		printf "%15s: $%10.2f %15s: $%10.2f %15s: $%10.2f Min: $%10.2f\n", "Total Recourse cost",Recourse_Costs, "LastMastercost", Netmastercost, "Combined cost", Combinedcost, MinCombinedcost ;
+		printf "LPS: %d %d %d IO: %d %d IOCost: $%8.2f $%8.2f\n",	L,P,S,
+		Idle_Cars, Outsource_Cars, Idle_Costs, Outsource_Costs	;
+ */
+		/* This logic is supposed to use logical variables down and downfirst to set the minimums found to date in the horizon.
+		inserting and down == 1 means record the min only when the bound is going down.	
+		seems to work now.
+		Combinedcost <= MinCombinedcost when we are descending (most of the time), since the total costs tend to drop with less cars.
+		In this case the minimums re just at the smallest bound, so not useful to find optimum
+		*/
+		# this is to capture the starting point costs to be able to 
+		# get a difference later on to compare.	
+		# only happens when first step of search is done		
+		if ( searchcount == 2 ) then {
+			# we get here after we have run one step of the search both schedule and quarter.
+			# we capture the values we need for the future
+			let FirstCombinedcost [ h ] := Combinedcost ;
+			let FirstLPB [ h ] := LPB ; let FirstSB [ h ] := SB ;
+			let FirstL [ h ] := L ; let FirstP [ h ] := P ; let FirstS [ h ] := S ;
+			let FirstIdleCars [ h ] := Idle_Cars ;
+			let FirstOutsourceCars [ h ] := Outsource_Cars ;
+			let FirstIdleCosts [ h ] := Idle_Costs ;
+			let FirstOutsourceCosts [ h ] := Outsource_Costs ;
+			let FirstRecourse_Costs [ h ] := Combinedcost - Netmastercost ;
+			# Now that it works the following is for diagnostic purposes and need not be printed
+/* 			printf "First: Combined Cost: $%10.2f LPS: %d %d %d Bounds: %d %d IOCars: %d %d IOCost: $%8.2f $%8.2f Flags: %d %d %d\n", 
+				FirstCombinedcost, FirstL, FirstP, FirstS, FirstLPB, FirstSB, 
+				FirstIdleCars, FirstOutsourceCars, FirstIdleCosts, FirstOutsourceCosts,
+				down, up, downfirst ;
+ */
+		}
+		
+		if ( Combinedcost <= MinCombinedcost and down == 1 ) then {
+			# we dont get here till we have run one Quarter problem.
+			# that is because of the fact that it has to be less
+			let MinCombinedcost := Combinedcost ;
+			let MinLPB := LPB ; let MinSB := SB ;
+			let MinL := L ; let MinP := P ; let MinS := S ;
+			let MinIdleCars := Idle_Cars ;
+			let MinOutsourceCars := Outsource_Cars ;
+			let MinIdleCosts := Idle_Costs ;
+			let MinOutsourceCosts := Outsource_Costs ;
+			# Now that it works the following is for diagnostic purposes and need not be printed
+/* 			printf "Mins: Combined Cost: $%10.2f LPS: %d %d %d Bounds: %d %d IOCars: %d %d IOCost: $%8.2f $%8.2f Flags: %d %d %d\n", 
+				MinCombinedcost, MinL, MinP, MinS, MinLPB, MinSB, MinIdleCars, MinOutsourceCars, MinIdleCosts, MinOutsourceCosts,
+				down, up, downfirst ;
+ */		
+		}
+
+		# set inputs for Quarter master problem
+		let ERecourseCost := Recourse_Costs ; # set the recourse cost for input, ERecourseCost is internal to Quarter problem
+		# set the bounds. the bounds will move up or down in the search, LPB, SB are internal to Quarter problem
+		# we also pass in the idle costs, outsource costs, 
+		let LPB := LPBound ;
+		let SB := SBound ;
+		# summarize what is going in
+		printf "%30s %10.3f IC=%10.3f OC=%10.3f LPB=%10d SB=%10d\n", 
+		 "Starting Quarter (Master) Problem with recourse cost = ",
+		 ERecourseCost, Idle_Costs, Outsource_Costs, LPB, SB ;
+		 
+		# quarter model computes the fixed costs using the previous recourse cost and the current bounds LPB, SB
+		solve Quarter;
+		
+		# calculate the portion that does not depend on the recourse costs, so we can calculate the post hoc combined cost.
+		let Netmastercost := Qcost-ERecourseCost ; 
+		# report the outcomes
+		printf "%10s %10.2f %10s %10.2f %10s %5d %5d %5d Idle Costs: %10.3f Outsource Costs: %10.3f ", "Master cost=", Qcost, 
+			"Netmastercost=",Netmastercost,"(Lop Pop Sop)=", Lop, Pop, Sop, Idle_Costs, Outsource_Costs;
+		
+		# this section compares idle costs to outsource costs to decide whether to change bound up or down
+		# this is where the search direction gets set.
+		# also set whether the direction is up first or down first.
+		if Idle_Costs > Outsource_Costs then {
+			printf "%15s\n", "Idle > Out" ;
+			let LPBound := LPBound - 1 ;
+			let down := 1 ; 
+			# if ( Netmastercost == Infinity  and MinCombinedcost == Infinity ) then let downfirst := 1 ;
+			if ( down == 1 and up == 0 ) then let downfirst := 1 ; # means we went down first
+			if ( down == 1 and up == 1 ) then let down2 := 1 ; #happens when we reverse from an up cycle
+			if ( down2 == 1 ) then  { #leave in for now, though diagnostic
+				printf "Switch back down2, $%10.2f %4d %4d %4d Flags: %4d %4d %4d\n", Netmastercost, Lop, Pop, Sop, down, up, downfirst ; 
+				}
+		}
+		if Idle_Costs <= Outsource_Costs then {
+			printf "%15s\n", "Idle <= Out" ;
+			let LPBound := LPBound + 1 ; 
+			let up := 1 ;
+			# if ( Netmastercost == Infinity  and MinCombinedcost == Infinity ) then let downfirst := 0 ;
+			if ( down == 0 and up == 1 ) then let downfirst := 0 ; # means we went up first
+			if ( down == 1 and up == 1 ) then let up2 := 1 ;  #happens when we reverse from a down cycle
+			if ( up2 == 1 ) then  { #leave in for now, though diagnostic
+				printf "Switch back up2, $%10.2f %4d %4d %4d Flags: %4d %4d %4d\n", Netmastercost, Lop, Pop, Sop, down, up, downfirst ;
+				}
+		}
+		
+		# this logic decides whether the search is over	
+		if ( down2 == 1 and up2 == 1 and downfirst == 1 ) then {
+			printf "%15s %10.3f %10.3f %10.3f %10.3f %4d %4d %4d Flags: %4d %4d %4d\n", "Gonna break.",
+			 Qcost, Qcostold, Idle_Costs, Outsource_Costs, Lop, Pop, Sop, down, up, downfirst ;
+			# not needed?
+			let Qcostold := Qcost ; 
+			let L := Lop; let P := Pop; let S := Sop; #make sure to do it before the break for next step
+			# leave the repeat loop
+			break ;
+		}
+		if ( down2 == 1 and up2 == 1 and downfirst == 0 ) then {
+			printf "%15s %10.3f %10.3f %10.3f %10.3f %4d %4d %4d Flags: %4d %4d %4d\n", "Set mins to last before break.",
+				Qcost, Qcostold, Idle_Costs, Outsource_Costs, Lop, Pop, Sop, down, up, downfirst ;
+			# not needed?			 
+			let Qcostold := Qcost ;
+			# define inputs for rerun of scheduling recourse problem
+			let L := Lop; let P := Pop; let S := Sop; #make sure set for rerun before break, for next step
+			# define minimum bounds 
+			let MinL := Lop ; let MinP := Pop ; let MinS := Sop ;
+			let MinLPB := LPB ; let MinSB := SB ;
+			# define the minimums for the calculation
+			let MinCombinedcost := Combinedcost ;
+			let MinIdleCars := Idle_Cars ;
+			let MinOutsourceCars := Outsource_Cars ;
+			let MinIdleCosts := Idle_Costs ;
+			let MinOutsourceCosts := Outsource_Costs ;
+			# leave the repeat loop
+			break ;
+		}
+		
+		# define L, P, S for the next Scheduling pass to get the proper recourse costs
+		# this should happen if no break has occurred in the last 2 statements, ie. 
+		# when down2 !=1 or up2 != 1 
+		# since the breaks above handle all other cases of downfirst ;
+		let L := Lop; let P := Pop; let S := Sop; #?????
+		printf "Completed Schedule and Quarter for search step no: %d\n", searchcount ;
+		# let searchcount := searchcount + 1 ; # dont want it here, set at start of repeat
+	} # repeat end of the search for the minimum cost L, P, S
+
+	# rerun outside the repeat loop to get the 'final answer' with correct recourse cost
+	# finish off by rerunning the subproblem
+	# first print L, P, S for input to the schedule model
+	# these are diagnostic if it works
+/* 	printf "L Settings for rerunning subproblem 1: LPS: %d %d %d : Bounds: %d %d\n", L, P, S, LPB, SB ;
+	printf "Settings for rerunning subproblem 1 Min LPS: %d %d %d : Bounds: %d %d\n", MinL, MinP, MinS, MinLPB, MinSB ;	
+ */	
+	# logic to set the settings properly for the rerun, currently worked above for downfirst = 0
+	if ( downfirst == 1 ) then {
+		let L := MinL ; 
+		let P := MinP ;
+		let S := MinS ;
+		let LPB := MinLPB ;
+		let SB := MinSB ;
+	}
+	# this may be diagnostic, but leave for now
+	printf "Adjusted settings for rerunning subproblem 1 (L,P,S): %d %d %d : Bounds: %d %d\n", L, P, S, LPB, SB ;
+	
+	# rerun scheduling model 6 times and record the info as above
+	for {q in PDS} {
+		let EDQ[q] := F*seas[q];	 
+		let PPr_mean := EDQ[q] ;
+		let EDR := Emin .. Emax by Estep ;
+	
+		for {i in EDR}  {
+			let E_demand := i;
+				solve Recourse > scratchfile.out;
+				let PPr_trunc_const := gsl_cdf_poisson_P(Emax,PPr_mean) - gsl_cdf_poisson_P(Emin-1,PPr_mean) ;
+				let PPr[i] := ( gsl_cdf_poisson_P(i,PPr_mean) - gsl_cdf_poisson_P(i-1,PPr_mean) ) / PPr_trunc_const;
+				let edr_obj[i] := RCost ;
+				let edr_dist[i] := edr_obj[i] * PPr[i] ;
+				let edr_O[i] := O*PPr[i] ;
+				let edr_Q[i] := Q*PPr[i];
+				let edr_CO[i] := CO*edr_O[i] ;
+				let edr_CQ[i] := CQ*edr_Q[i] ;
+				for {j in 1..5} {
+					let edr_XP[i,j] := XP[j]; let edr_XL[i,j] := XL[j];
+				}
+		}
+		let Expected_Cost[q]  :=  sum {i in EDR} edr_dist[i] ;
+		let Expected_Q[q] := sum {i in EDR} edr_Q[i] ;
+		let Expected_O[q] := sum {i in EDR} edr_O[i] ;
+		let ECO[q] := CO*Expected_O[q] ;
+		let ECQ[q] := CQ*Expected_Q[q] ;
+		printf "%5s %2d %20s %4d %4d %4d %9.2f %9.2f %9.2f %9.2f %10s %10.3f\n", 
+			  "q=",q,"(L P S EQ EO ECQ ECO)=",L, P, S, 
+			  Expected_Q[q],Expected_O[q],ECQ[q],ECO[q],
+			 "ERcost=",Expected_Cost[q] ;
+	}
+
+	# display results of last scheduling model with accurate recourse costs
+	let Recourse_Costs := sum {q in PDS} Expected_Cost[q] ;
+/* 	this is diagnostic since it shows up in next printed line
+	printf "Rerun 1 Sum of expected recourse costs: %15s: $%10.2f\n", "Total Recourse cost",Recourse_Costs ;
+ */	
+	#report the summary answers
+	printf "\nFINAL RESULTS\n","" ;
+	printf "\nBeginning results for Horizon Period %d\n", h ;
+	# report the first output of search from the search start variables, for comparison later
+	printf "Combined Cost: $%10.2f LPS: %d %d %d Bounds: %d %d Recourse Cost: $%10.2f IOCars: %d %d IOCost: $%8.2f $%8.2f\n", 
+		FirstCombinedcost[ h ], FirstL[ h ], FirstP[ h ], FirstS[ h ], FirstLPB[ h ], FirstSB[ h ], 
+		FirstRecourse_Costs[ h ], FirstIdleCars[ h ], FirstOutsourceCars[ h ], FirstIdleCosts[ h ], FirstOutsourceCosts[ h ] ;
+
+	printf "\nSummary results for Horizon Period %d\n", h ;
+	let Recourse_Costs := sum {q in PDS} Expected_Cost[q] ;
+	# report the best output from the min variables
+	printf "Combined Cost: $%10.2f LPS: %d %d %d Bounds: %d %d Recourse Cost: $%10.2f IOCars: %d %d IOCost: $%8.2f $%8.2f\n", 
+		MinCombinedcost, MinL, MinP, MinS, MinLPB, MinSB, 
+		Recourse_Costs, MinIdleCars, MinOutsourceCars, MinIdleCosts, MinOutsourceCosts ;
+
+	/* define the number of cars required for each horizon period and report out the data*/
+	let Nocars[ h, 'Leased' ] := L ;
+	let Nocars[ h, 'Purchased' ] := P ;	
+	let Nocars[ h, 'Subleased_L' ] := S ;
+	let Nocars[ h, 'Subleased_P' ] := 0 ; 
+	/* here are the costs generated by those configurations */
+	# needs possible revision 
+	let Expected_Outsource[ h ] := MinOutsourceCars ;
+	let Expected_Idle[ h ] := MinIdleCars ;
+	let Expected_Outsource_Cost [ h ] := MinOutsourceCosts ;
+	let Expected_Idle_Cost [ h ] := MinIdleCosts ;
+	let Combined_Cost [h] := MinCombinedcost ;
+	let Expected_Recourse_Cost [h] := Recourse_Costs ;
+
+	printf "\nEND RUN for Period %d %s\n", h,"*****************************************************" ;
+} # end of horizon loop
+# show some of input data for horizon optimization
+printf "\nAcceptable Idle Rate: %4.2f\% Outsource Rate: %4.2f\%\n", 100*Acceptable_Idle_rate, 100*Acceptable_Outsource_rate ;
+# report the summary of results we stored above in a nice format
+printf "\nOPTIMAL RESULTS FOR HORIZONS\n","" ;
+printf "  h %8s %8s %8s %8s %12s %12s %8s %8s  %8s  %8s\n", 
+	"LCars", "PCars", "SLCars", "SPCars","CombinedCost", 
+	"ERecourseCost", "IdleCars","OutsCars", "IdleCost", "OutsCost" ;
+for { h in HORIZON} {
+	printf "%3d %8d %8d %8d %8d   %10.2f  %10.2f %8d %8d      %8.2f  %8.2f\n", h,
+		Nocars[ h, 'Leased' ], Nocars[ h, 'Purchased' ], Nocars[ h, 'Subleased_L' ], Nocars[ h, 'Subleased_P' ],
+		Combined_Cost [h], Expected_Recourse_Cost [h],
+		Expected_Idle[h], Expected_Outsource[h], 
+		Expected_Idle_Cost[h], Expected_Outsource_Cost[h] ;
+}
+printf "INITIAL RESULTS FOR HORIZONS\n","" ;
+printf "  h %8s %8s %8s %8s %12s %12s %8s %8s  %8s  %8s %8s %8s\n", 
+	"LCars", "PCars", "SCars", "", "CombinedCost", 
+	"ERecourseCost", "IdleCars","OutsCars", "IdleCost", "OutsCost", "LPB", "SB" ;
+for { h in HORIZON} {
+	printf "%3d %8d %8d %8d %8d   %10.2f  %10.2f %8d %8d      %8.2f  %8.2f\n", h,
+		FirstL[ h ], FirstP[ h ], FirstS[ h ], 	0 , 
+		FirstCombinedcost[ h ],  FirstRecourse_Costs[ h ], 
+		FirstIdleCars[ h ], FirstOutsourceCars[ h ], 
+		FirstIdleCosts[ h ], FirstOutsourceCosts[ h ], 
+		FirstLPB[ h ], FirstSB[ h ] 	;
+}
+printf "END OF RESULTS FOR HORIZONS\n", "" ;
+# some tries at using display to report results in tables
+option display_transpose -5 , display_width 132 , display_lcol 50 ;
+display Combined_Cost, Expected_Recourse_Cost, Expected_Idle, Expected_Outsource, Expected_Idle_Cost, Expected_Outsource_Cost  ;
+display { h in HORIZON } : { c in CARS} Nocars [h,c] ;

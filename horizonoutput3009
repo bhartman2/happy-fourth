@@ -1,0 +1,626 @@
+Forecast for QTR: 0 = 295
+BEGIN RUN for horizon 0 with Forecast 295 *****************************************************
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    9278.677 IC=  5784.494 OC=   800.709 LPB=        69 SB=         5
+Master cost=   25238.68 Netmastercost=   15960.00 (Lop Pop Sop)=    69     0     5 Idle Costs:   5784.494 Outsource Costs:    800.709      Idle > Out
+Completed Schedule and Quarter for search step no: 1
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    9278.677 IC=  5784.494 OC=   800.709 LPB=        68 SB=         5
+Master cost=   24998.68 Netmastercost=   15720.00 (Lop Pop Sop)=    68     0     5 Idle Costs:   5784.494 Outsource Costs:    800.709      Idle > Out
+Completed Schedule and Quarter for search step no: 2
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    9068.116 IC=  5548.379 OC=   839.040 LPB=        67 SB=         5
+Master cost=   24548.12 Netmastercost=   15480.00 (Lop Pop Sop)=    67     0     5 Idle Costs:   5548.379 Outsource Costs:    839.040      Idle > Out
+Completed Schedule and Quarter for search step no: 3
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    8860.901 IC=  5314.654 OC=   878.805 LPB=        66 SB=         5
+Master cost=   24100.90 Netmastercost=   15240.00 (Lop Pop Sop)=    66     0     5 Idle Costs:   5314.654 Outsource Costs:    878.805      Idle > Out
+Completed Schedule and Quarter for search step no: 4
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    8657.314 IC=  5083.520 OC=   920.125 LPB=        65 SB=         5
+Master cost=   23657.31 Netmastercost=   15000.00 (Lop Pop Sop)=    65     0     5 Idle Costs:   5083.520 Outsource Costs:    920.125      Idle > Out
+Completed Schedule and Quarter for search step no: 5
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    8457.630 IC=  4855.175 OC=   963.117 LPB=        64 SB=         5
+Master cost=   23217.63 Netmastercost=   14760.00 (Lop Pop Sop)=    64     0     5 Idle Costs:   4855.175 Outsource Costs:    963.117      Idle > Out
+Completed Schedule and Quarter for search step no: 6
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    8262.116 IC=  4629.807 OC=  1007.897 LPB=        63 SB=         5
+Master cost=   22782.12 Netmastercost=   14520.00 (Lop Pop Sop)=    63     0     5 Idle Costs:   4629.807 Outsource Costs:   1007.897      Idle > Out
+Completed Schedule and Quarter for search step no: 7
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    8071.032 IC=  4407.605 OC=  1054.576 LPB=        62 SB=         5
+Master cost=   22351.03 Netmastercost=   14280.00 (Lop Pop Sop)=    62     0     5 Idle Costs:   4407.605 Outsource Costs:   1054.576      Idle > Out
+Completed Schedule and Quarter for search step no: 8
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    7884.636 IC=  4188.751 OC=  1103.263 LPB=        61 SB=         5
+Master cost=   21924.64 Netmastercost=   14040.00 (Lop Pop Sop)=    61     0     5 Idle Costs:   4188.751 Outsource Costs:   1103.263      Idle > Out
+Completed Schedule and Quarter for search step no: 9
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    7703.190 IC=  3973.432 OC=  1154.072 LPB=        60 SB=         5
+Master cost=   21503.19 Netmastercost=   13800.00 (Lop Pop Sop)=    60     0     5 Idle Costs:   3973.432 Outsource Costs:   1154.072      Idle > Out
+Completed Schedule and Quarter for search step no: 10
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    7526.965 IC=  3761.843 OC=  1207.118 LPB=        59 SB=         5
+Master cost=   21086.97 Netmastercost=   13560.00 (Lop Pop Sop)=    59     0     5 Idle Costs:   3761.843 Outsource Costs:   1207.118      Idle > Out
+Completed Schedule and Quarter for search step no: 11
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    7356.256 IC=  3554.194 OC=  1262.529 LPB=        58 SB=         5
+Master cost=   20676.26 Netmastercost=   13320.00 (Lop Pop Sop)=    58     0     5 Idle Costs:   3554.194 Outsource Costs:   1262.529      Idle > Out
+Completed Schedule and Quarter for search step no: 12
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    7191.386 IC=  3350.714 OC=  1320.441 LPB=        57 SB=         5
+Master cost=   20271.39 Netmastercost=   13080.00 (Lop Pop Sop)=    57     0     5 Idle Costs:   3350.714 Outsource Costs:   1320.441      Idle > Out
+Completed Schedule and Quarter for search step no: 13
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    7032.709 IC=  3151.660 OC=  1381.009 LPB=        56 SB=         5
+Master cost=   19872.71 Netmastercost=   12840.00 (Lop Pop Sop)=    56     0     5 Idle Costs:   3151.660 Outsource Costs:   1381.009      Idle > Out
+Completed Schedule and Quarter for search step no: 14
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6880.617 IC=  2957.308 OC=  1444.398 LPB=        55 SB=         5
+Master cost=   19480.62 Netmastercost=   12600.00 (Lop Pop Sop)=    55     0     5 Idle Costs:   2957.308 Outsource Costs:   1444.398      Idle > Out
+Completed Schedule and Quarter for search step no: 15
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6731.104 IC=  2767.960 OC=  1510.789 LPB=        54 SB=         5
+Master cost=   19091.10 Netmastercost=   12360.00 (Lop Pop Sop)=    54     0     5 Idle Costs:   2767.960 Outsource Costs:   1510.789      Idle > Out
+Completed Schedule and Quarter for search step no: 16
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6593.460 IC=  2583.929 OC=  1580.370 LPB=        53 SB=         5
+Master cost=   18713.46 Netmastercost=   12120.00 (Lop Pop Sop)=    53     0     5 Idle Costs:   2583.929 Outsource Costs:   1580.370      Idle > Out
+Completed Schedule and Quarter for search step no: 17
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6463.700 IC=  2405.529 OC=  1653.330 LPB=        52 SB=         5
+Master cost=   18343.70 Netmastercost=   11880.00 (Lop Pop Sop)=    52     0     5 Idle Costs:   2405.529 Outsource Costs:   1653.330      Idle > Out
+Completed Schedule and Quarter for search step no: 18
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6342.241 IC=  2233.059 OC=  1729.848 LPB=        51 SB=         5
+Master cost=   17982.24 Netmastercost=   11640.00 (Lop Pop Sop)=    51     0     5 Idle Costs:   2233.059 Outsource Costs:   1729.848      Idle > Out
+Completed Schedule and Quarter for search step no: 19
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6229.457 IC=  2066.784 OC=  1810.083 LPB=        50 SB=         5
+Master cost=   17629.46 Netmastercost=   11400.00 (Lop Pop Sop)=    50     0     5 Idle Costs:   2066.784 Outsource Costs:   1810.083      Idle > Out
+Completed Schedule and Quarter for search step no: 20
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6125.649 IC=  1906.921 OC=  1894.165 LPB=        49 SB=         5
+Master cost=   17285.65 Netmastercost=   11160.00 (Lop Pop Sop)=    49     0     5 Idle Costs:   1906.921 Outsource Costs:   1894.165      Idle > Out
+Completed Schedule and Quarter for search step no: 21
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6031.029 IC=  1753.621 OC=  1982.186 LPB=        48 SB=         5
+Master cost=   16951.03 Netmastercost=   10920.00 (Lop Pop Sop)=    48     0     5 Idle Costs:   1753.621 Outsource Costs:   1982.186     Idle <= Out
+Switch back up2, $  10920.00   48    0    5 Flags:    1    1    1
+Completed Schedule and Quarter for search step no: 22
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    5945.708 IC=  1606.963 OC=  2074.191 LPB=        49 SB=         5
+Master cost=   17105.71 Netmastercost=   11160.00 (Lop Pop Sop)=    49     0     5 Idle Costs:   1606.963 Outsource Costs:   2074.191     Idle <= Out
+Switch back up2, $  11160.00   49    0    5 Flags:    1    1    1
+Completed Schedule and Quarter for search step no: 23
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6031.029 IC=  1753.621 OC=  1982.186 LPB=        50 SB=         5
+Master cost=   17431.03 Netmastercost=   11400.00 (Lop Pop Sop)=    50     0     5 Idle Costs:   1753.621 Outsource Costs:   1982.186     Idle <= Out
+Switch back up2, $  11400.00   50    0    5 Flags:    1    1    1
+Completed Schedule and Quarter for search step no: 24
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6125.649 IC=  1906.921 OC=  1894.165 LPB=        51 SB=         5
+Master cost=   17765.65 Netmastercost=   11640.00 (Lop Pop Sop)=    51     0     5 Idle Costs:   1906.921 Outsource Costs:   1894.165      Idle > Out
+Switch back down2, $  11640.00   51    0    5 Flags:    1    1    1
+   Gonna break.  17765.649   Infinity   1906.921   1894.165   51    0    5 Flags:    1    1    1
+Adjusted settings for rerunning subproblem 1 (L,P,S): 48 0 5 : Bounds: 48 5
+   q=  1 (L P S EQ EO ECQ ECO)=   48    0    5      0.04     16.04      1.82    481.09    ERcost=    913.542
+   q=  2 (L P S EQ EO ECQ ECO)=   48    0    5      0.00     45.50      0.00   1365.00    ERcost=   1796.000
+   q=  3 (L P S EQ EO ECQ ECO)=   48    0    5     13.99      0.49    699.65     14.80    ERcost=   1005.490
+   q=  4 (L P S EQ EO ECQ ECO)=   48    0    5      2.06      3.31    102.92     99.25    ERcost=    612.592
+   q=  5 (L P S EQ EO ECQ ECO)=   48    0    5     13.99      0.49    699.65     14.80    ERcost=   1005.490
+   q=  6 (L P S EQ EO ECQ ECO)=   48    0    5      2.06      3.31    102.92     99.25    ERcost=    612.592
+
+FINAL RESULTS
+
+Beginning results for Horizon Period 0
+Combined Cost: $  25238.68 LPS: 69 0 5 Bounds: 69 5 Recourse Cost: $   9278.68 IOCars: 115 26 IOCost: $ 5784.49 $  800.71
+
+Summary results for Horizon Period 0
+Combined Cost: $  16865.71 LPS: 48 0 5 Bounds: 48 5 Recourse Cost: $   5945.71 IOCars: 32 69 IOCost: $ 1606.96 $ 2074.19
+
+END RUN for Period 0 *****************************************************
+Forecast for QTR: 1 = 400
+BEGIN RUN for horizon 1 with Forecast 400 *****************************************************
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    8470.794 IC=  2957.621 OC=  2250.918 LPB=        69 SB=         5
+Master cost=   24430.79 Netmastercost=   15960.00 (Lop Pop Sop)=    69     0     5 Idle Costs:   2957.621 Outsource Costs:   2250.918      Idle > Out
+Completed Schedule and Quarter for search step no: 1
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    8470.794 IC=  2957.621 OC=  2250.918 LPB=        68 SB=         5
+Master cost=   24190.79 Netmastercost=   15720.00 (Lop Pop Sop)=    68     0     5 Idle Costs:   2957.621 Outsource Costs:   2250.918      Idle > Out
+Completed Schedule and Quarter for search step no: 2
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    8353.540 IC=  2788.154 OC=  2329.238 LPB=        67 SB=         5
+Master cost=   23833.54 Netmastercost=   15480.00 (Lop Pop Sop)=    67     0     5 Idle Costs:   2788.154 Outsource Costs:   2329.238      Idle > Out
+Completed Schedule and Quarter for search step no: 3
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    8243.339 IC=  2623.725 OC=  2410.581 LPB=        66 SB=         5
+Master cost=   23483.34 Netmastercost=   15240.00 (Lop Pop Sop)=    66     0     5 Idle Costs:   2623.725 Outsource Costs:   2410.581      Idle > Out
+Completed Schedule and Quarter for search step no: 4
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    8140.426 IC=  2464.501 OC=  2495.046 LPB=        65 SB=         5
+Master cost=   23140.43 Netmastercost=   15000.00 (Lop Pop Sop)=    65     0     5 Idle Costs:   2464.501 Outsource Costs:   2495.046     Idle <= Out
+Switch back up2, $  15000.00   65    0    5 Flags:    1    1    1
+Completed Schedule and Quarter for search step no: 5
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    8044.963 IC=  2310.599 OC=  2582.705 LPB=        66 SB=         5
+Master cost=   23284.96 Netmastercost=   15240.00 (Lop Pop Sop)=    66     0     5 Idle Costs:   2310.599 Outsource Costs:   2582.705     Idle <= Out
+Switch back up2, $  15240.00   66    0    5 Flags:    1    1    1
+Completed Schedule and Quarter for search step no: 6
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    8140.426 IC=  2464.501 OC=  2495.046 LPB=        67 SB=         5
+Master cost=   23620.43 Netmastercost=   15480.00 (Lop Pop Sop)=    67     0     5 Idle Costs:   2464.501 Outsource Costs:   2495.046     Idle <= Out
+Switch back up2, $  15480.00   67    0    5 Flags:    1    1    1
+Completed Schedule and Quarter for search step no: 7
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    8243.339 IC=  2623.725 OC=  2410.581 LPB=        68 SB=         5
+Master cost=   23963.34 Netmastercost=   15720.00 (Lop Pop Sop)=    68     0     5 Idle Costs:   2623.725 Outsource Costs:   2410.581      Idle > Out
+Switch back down2, $  15720.00   68    0    5 Flags:    1    1    1
+   Gonna break.  23963.339  17765.649   2623.725   2410.581   68    0    5 Flags:    1    1    1
+Adjusted settings for rerunning subproblem 1 (L,P,S): 65 0 5 : Bounds: 65 5
+   q=  1 (L P S EQ EO ECQ ECO)=   65    0    5      0.03     20.03      1.37    600.82    ERcost=   1204.924
+   q=  2 (L P S EQ EO ECQ ECO)=   65    0    5      0.00     59.88      0.00   1796.35    ERcost=   2399.346
+   q=  3 (L P S EQ EO ECQ ECO)=   65    0    5     20.01      0.01   1000.32      0.19    ERcost=   1401.549
+   q=  4 (L P S EQ EO ECQ ECO)=   65    0    5      3.09      3.09    154.30     92.58    ERcost=    818.798
+   q=  5 (L P S EQ EO ECQ ECO)=   65    0    5     20.01      0.01   1000.32      0.19    ERcost=   1401.549
+   q=  6 (L P S EQ EO ECQ ECO)=   65    0    5      3.09      3.09    154.30     92.58    ERcost=    818.798
+
+FINAL RESULTS
+
+Beginning results for Horizon Period 1
+Combined Cost: $  24430.79 LPS: 69 0 5 Bounds: 69 5 Recourse Cost: $   8470.79 IOCars: 59 75 IOCost: $ 2957.62 $ 2250.92
+
+Summary results for Horizon Period 1
+Combined Cost: $  23044.96 LPS: 65 0 5 Bounds: 65 5 Recourse Cost: $   8044.96 IOCars: 46 86 IOCost: $ 2310.60 $ 2582.71
+
+END RUN for Period 1 *****************************************************
+Forecast for QTR: 2 = 300
+BEGIN RUN for horizon 2 with Forecast 300 *****************************************************
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    8386.827 IC=  4697.329 OC=  1018.407 LPB=        65 SB=         5
+Master cost=   23386.83 Netmastercost=   15000.00 (Lop Pop Sop)=    65     0     5 Idle Costs:   4697.329 Outsource Costs:   1018.407      Idle > Out
+Completed Schedule and Quarter for search step no: 1
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    8386.827 IC=  4697.329 OC=  1018.407 LPB=        64 SB=         5
+Master cost=   23146.83 Netmastercost=   14760.00 (Lop Pop Sop)=    64     0     5 Idle Costs:   4697.329 Outsource Costs:   1018.407      Idle > Out
+Completed Schedule and Quarter for search step no: 2
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    8195.617 IC=  4475.037 OC=  1065.031 LPB=        63 SB=         5
+Master cost=   22715.62 Netmastercost=   14520.00 (Lop Pop Sop)=    63     0     5 Idle Costs:   4475.037 Outsource Costs:   1065.031      Idle > Out
+Completed Schedule and Quarter for search step no: 3
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    8009.017 IC=  4256.036 OC=  1113.631 LPB=        62 SB=         5
+Master cost=   22289.02 Netmastercost=   14280.00 (Lop Pop Sop)=    62     0     5 Idle Costs:   4256.036 Outsource Costs:   1113.631      Idle > Out
+Completed Schedule and Quarter for search step no: 4
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    7827.275 IC=  4040.507 OC=  1164.313 LPB=        61 SB=         5
+Master cost=   21867.28 Netmastercost=   14040.00 (Lop Pop Sop)=    61     0     5 Idle Costs:   4040.507 Outsource Costs:   1164.313      Idle > Out
+Completed Schedule and Quarter for search step no: 5
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    7650.651 IC=  3828.632 OC=  1217.188 LPB=        60 SB=         5
+Master cost=   21450.65 Netmastercost=   13800.00 (Lop Pop Sop)=    60     0     5 Idle Costs:   3828.632 Outsource Costs:   1217.188      Idle > Out
+Completed Schedule and Quarter for search step no: 6
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    7479.423 IC=  3620.612 OC=  1272.377 LPB=        59 SB=         5
+Master cost=   21039.42 Netmastercost=   13560.00 (Lop Pop Sop)=    59     0     5 Idle Costs:   3620.612 Outsource Costs:   1272.377      Idle > Out
+Completed Schedule and Quarter for search step no: 7
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    7313.899 IC=  3416.667 OC=  1330.009 LPB=        58 SB=         5
+Master cost=   20633.90 Netmastercost=   13320.00 (Lop Pop Sop)=    58     0     5 Idle Costs:   3416.667 Outsource Costs:   1330.009      Idle > Out
+Completed Schedule and Quarter for search step no: 8
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    7154.420 IC=  3217.038 OC=  1390.232 LPB=        57 SB=         5
+Master cost=   20234.42 Netmastercost=   13080.00 (Lop Pop Sop)=    57     0     5 Idle Costs:   3217.038 Outsource Costs:   1390.232      Idle > Out
+Completed Schedule and Quarter for search step no: 9
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    7001.360 IC=  3021.996 OC=  1453.207 LPB=        56 SB=         5
+Master cost=   19841.36 Netmastercost=   12840.00 (Lop Pop Sop)=    56     0     5 Idle Costs:   3021.996 Outsource Costs:   1453.207      Idle > Out
+Completed Schedule and Quarter for search step no: 10
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6855.128 IC=  2831.830 OC=  1519.107 LPB=        55 SB=         5
+Master cost=   19455.13 Netmastercost=   12600.00 (Lop Pop Sop)=    55     0     5 Idle Costs:   2831.830 Outsource Costs:   1519.107      Idle > Out
+Completed Schedule and Quarter for search step no: 11
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6711.552 IC=  2646.848 OC=  1588.118 LPB=        54 SB=         5
+Master cost=   19071.55 Netmastercost=   12360.00 (Lop Pop Sop)=    54     0     5 Idle Costs:   2646.848 Outsource Costs:   1588.118      Idle > Out
+Completed Schedule and Quarter for search step no: 12
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6580.269 IC=  2467.360 OC=  1660.425 LPB=        53 SB=         5
+Master cost=   18700.27 Netmastercost=   12120.00 (Lop Pop Sop)=    53     0     5 Idle Costs:   2467.360 Outsource Costs:   1660.425      Idle > Out
+Completed Schedule and Quarter for search step no: 13
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6457.096 IC=  2293.665 OC=  1736.208 LPB=        52 SB=         5
+Master cost=   18337.10 Netmastercost=   11880.00 (Lop Pop Sop)=    52     0     5 Idle Costs:   2293.665 Outsource Costs:   1736.208      Idle > Out
+Completed Schedule and Quarter for search step no: 14
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6342.413 IC=  2126.034 OC=  1815.630 LPB=        51 SB=         5
+Master cost=   17982.41 Netmastercost=   11640.00 (Lop Pop Sop)=    51     0     5 Idle Costs:   2126.034 Outsource Costs:   1815.630      Idle > Out
+Completed Schedule and Quarter for search step no: 15
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6236.536 IC=  1964.693 OC=  1898.825 LPB=        50 SB=         5
+Master cost=   17636.54 Netmastercost=   11400.00 (Lop Pop Sop)=    50     0     5 Idle Costs:   1964.693 Outsource Costs:   1898.825      Idle > Out
+Completed Schedule and Quarter for search step no: 16
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6139.694 IC=  1809.806 OC=  1985.893 LPB=        49 SB=         5
+Master cost=   17299.69 Netmastercost=   11160.00 (Lop Pop Sop)=    49     0     5 Idle Costs:   1809.806 Outsource Costs:   1985.893     Idle <= Out
+Switch back up2, $  11160.00   49    0    5 Flags:    1    1    1
+Completed Schedule and Quarter for search step no: 17
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6052.020 IC=  1661.467 OC=  2076.889 LPB=        50 SB=         5
+Master cost=   17452.02 Netmastercost=   11400.00 (Lop Pop Sop)=    50     0     5 Idle Costs:   1661.467 Outsource Costs:   2076.889     Idle <= Out
+Switch back up2, $  11400.00   50    0    5 Flags:    1    1    1
+Completed Schedule and Quarter for search step no: 18
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6139.694 IC=  1809.806 OC=  1985.893 LPB=        51 SB=         5
+Master cost=   17779.69 Netmastercost=   11640.00 (Lop Pop Sop)=    51     0     5 Idle Costs:   1809.806 Outsource Costs:   1985.893     Idle <= Out
+Switch back up2, $  11640.00   51    0    5 Flags:    1    1    1
+Completed Schedule and Quarter for search step no: 19
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6236.536 IC=  1964.693 OC=  1898.825 LPB=        52 SB=         5
+Master cost=   18116.54 Netmastercost=   11880.00 (Lop Pop Sop)=    52     0     5 Idle Costs:   1964.693 Outsource Costs:   1898.825      Idle > Out
+Switch back down2, $  11880.00   52    0    5 Flags:    1    1    1
+   Gonna break.  18116.536  23963.339   1964.693   1898.825   52    0    5 Flags:    1    1    1
+Adjusted settings for rerunning subproblem 1 (L,P,S): 49 0 5 : Bounds: 49 5
+   q=  1 (L P S EQ EO ECQ ECO)=   49    0    5      0.04     16.04      1.94    481.17    ERcost=    923.718
+   q=  2 (L P S EQ EO ECQ ECO)=   49    0    5      0.00     46.00      0.00   1380.00    ERcost=   1821.000
+   q=  3 (L P S EQ EO ECQ ECO)=   49    0    5     14.40      0.40    720.20     12.12    ERcost=   1029.263
+   q=  4 (L P S EQ EO ECQ ECO)=   49    0    5      2.19      3.19    109.56     95.74    ERcost=    624.387
+   q=  5 (L P S EQ EO ECQ ECO)=   49    0    5     14.40      0.40    720.20     12.12    ERcost=   1029.263
+   q=  6 (L P S EQ EO ECQ ECO)=   49    0    5      2.19      3.19    109.56     95.74    ERcost=    624.387
+
+FINAL RESULTS
+
+Beginning results for Horizon Period 2
+Combined Cost: $  23386.83 LPS: 65 0 5 Bounds: 65 5 Recourse Cost: $   8386.83 IOCars: 93 33 IOCost: $ 4697.33 $ 1018.41
+
+Summary results for Horizon Period 2
+Combined Cost: $  17212.02 LPS: 49 0 5 Bounds: 49 5 Recourse Cost: $   6052.02 IOCars: 33 69 IOCost: $ 1661.47 $ 2076.89
+
+END RUN for Period 2 *****************************************************
+Forecast for QTR: 3 = 250
+BEGIN RUN for horizon 3 with Forecast 250 *****************************************************
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6239.183 IC=  2866.594 OC=  1300.176 LPB=        49 SB=         5
+Master cost=   17399.18 Netmastercost=   11160.00 (Lop Pop Sop)=    49     0     5 Idle Costs:   2866.594 Outsource Costs:   1300.176      Idle > Out
+Completed Schedule and Quarter for search step no: 1
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6239.183 IC=  2866.594 OC=  1300.176 LPB=        48 SB=         5
+Master cost=   17159.18 Netmastercost=   10920.00 (Lop Pop Sop)=    48     0     5 Idle Costs:   2866.594 Outsource Costs:   1300.176      Idle > Out
+Completed Schedule and Quarter for search step no: 2
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6089.477 IC=  2673.947 OC=  1364.587 LPB=        47 SB=         5
+Master cost=   16769.48 Netmastercost=   10680.00 (Lop Pop Sop)=    47     0     5 Idle Costs:   2673.947 Outsource Costs:   1364.587      Idle > Out
+Completed Schedule and Quarter for search step no: 3
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    5948.139 IC=  2487.277 OC=  1432.586 LPB=        46 SB=         5
+Master cost=   16388.14 Netmastercost=   10440.00 (Lop Pop Sop)=    46     0     5 Idle Costs:   2487.277 Outsource Costs:   1432.586      Idle > Out
+Completed Schedule and Quarter for search step no: 4
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    5815.692 IC=  2306.958 OC=  1504.394 LPB=        45 SB=         5
+Master cost=   16015.69 Netmastercost=   10200.00 (Lop Pop Sop)=    45     0     5 Idle Costs:   2306.958 Outsource Costs:   1504.394      Idle > Out
+Completed Schedule and Quarter for search step no: 5
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    5692.630 IC=  2133.342 OC=  1580.224 LPB=        44 SB=         5
+Master cost=   15652.63 Netmastercost=    9960.00 (Lop Pop Sop)=    44     0     5 Idle Costs:   2133.342 Outsource Costs:   1580.224      Idle > Out
+Completed Schedule and Quarter for search step no: 6
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    5579.393 IC=  1966.744 OC=  1660.266 LPB=        43 SB=         5
+Master cost=   15299.39 Netmastercost=    9720.00 (Lop Pop Sop)=    43     0     5 Idle Costs:   1966.744 Outsource Costs:   1660.266      Idle > Out
+Completed Schedule and Quarter for search step no: 7
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    5476.339 IC=  1807.420 OC=  1744.671 LPB=        42 SB=         5
+Master cost=   14956.34 Netmastercost=    9480.00 (Lop Pop Sop)=    42     0     5 Idle Costs:   1807.420 Outsource Costs:   1744.671      Idle > Out
+Completed Schedule and Quarter for search step no: 8
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    5383.727 IC=  1655.554 OC=  1833.552 LPB=        41 SB=         5
+Master cost=   14623.73 Netmastercost=    9240.00 (Lop Pop Sop)=    41     0     5 Idle Costs:   1655.554 Outsource Costs:   1833.552     Idle <= Out
+Switch back up2, $   9240.00   41    0    5 Flags:    1    1    1
+Completed Schedule and Quarter for search step no: 9
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    5301.708 IC=  1511.255 OC=  1926.972 LPB=        42 SB=         5
+Master cost=   14781.71 Netmastercost=    9480.00 (Lop Pop Sop)=    42     0     5 Idle Costs:   1511.255 Outsource Costs:   1926.972     Idle <= Out
+Switch back up2, $   9480.00   42    0    5 Flags:    1    1    1
+Completed Schedule and Quarter for search step no: 10
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    5383.727 IC=  1655.554 OC=  1833.552 LPB=        43 SB=         5
+Master cost=   15103.73 Netmastercost=    9720.00 (Lop Pop Sop)=    43     0     5 Idle Costs:   1655.554 Outsource Costs:   1833.552     Idle <= Out
+Switch back up2, $   9720.00   43    0    5 Flags:    1    1    1
+Completed Schedule and Quarter for search step no: 11
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    5476.339 IC=  1807.420 OC=  1744.671 LPB=        44 SB=         5
+Master cost=   15436.34 Netmastercost=    9960.00 (Lop Pop Sop)=    44     0     5 Idle Costs:   1807.420 Outsource Costs:   1744.671      Idle > Out
+Switch back down2, $   9960.00   44    0    5 Flags:    1    1    1
+   Gonna break.  15436.339  18116.536   1807.420   1744.671   44    0    5 Flags:    1    1    1
+Adjusted settings for rerunning subproblem 1 (L,P,S): 41 0 5 : Bounds: 41 5
+   q=  1 (L P S EQ EO ECQ ECO)=   41    0    5      0.04     14.04      2.23    421.34    ERcost=    784.124
+   q=  2 (L P S EQ EO ECQ ECO)=   41    0    5      0.00     39.00      0.00   1170.00    ERcost=   1531.000
+   q=  3 (L P S EQ EO ECQ ECO)=   41    0    5     13.33      2.34    666.68     70.12    ERcost=    964.326
+   q=  4 (L P S EQ EO ECQ ECO)=   41    0    5      1.76      3.26     87.83     97.70    ERcost=    528.966
+   q=  5 (L P S EQ EO ECQ ECO)=   41    0    5     13.33      2.34    666.68     70.12    ERcost=    964.326
+   q=  6 (L P S EQ EO ECQ ECO)=   41    0    5      1.76      3.26     87.83     97.70    ERcost=    528.966
+
+FINAL RESULTS
+
+Beginning results for Horizon Period 3
+Combined Cost: $  17399.18 LPS: 49 0 5 Bounds: 49 5 Recourse Cost: $   6239.18 IOCars: 57 43 IOCost: $ 2866.59 $ 1300.18
+
+Summary results for Horizon Period 3
+Combined Cost: $  14541.71 LPS: 41 0 5 Bounds: 41 5 Recourse Cost: $   5301.71 IOCars: 30 64 IOCost: $ 1511.25 $ 1926.97
+
+END RUN for Period 3 *****************************************************
+Forecast for QTR: 4 = 200
+BEGIN RUN for horizon 4 with Forecast 200 *****************************************************
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6008.632 IC=  3085.782 OC=  1374.985 LPB=        41 SB=         5
+Master cost=   15248.63 Netmastercost=    9240.00 (Lop Pop Sop)=    41     0     5 Idle Costs:   3085.782 Outsource Costs:   1374.985      Idle > Out
+Completed Schedule and Quarter for search step no: 1
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6008.632 IC=  3085.782 OC=  1374.985 LPB=        40 SB=         5
+Master cost=   15008.63 Netmastercost=    9000.00 (Lop Pop Sop)=    40     0     5 Idle Costs:   3085.782 Outsource Costs:   1374.985      Idle > Out
+Completed Schedule and Quarter for search step no: 2
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    5853.786 IC=  2889.464 OC=  1437.195 LPB=        39 SB=         5
+Master cost=   14613.79 Netmastercost=    8760.00 (Lop Pop Sop)=    39     0     5 Idle Costs:   2889.464 Outsource Costs:   1437.195      Idle > Out
+Completed Schedule and Quarter for search step no: 3
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    5708.788 IC=  2700.179 OC=  1503.624 LPB=        38 SB=         5
+Master cost=   14228.79 Netmastercost=    8520.00 (Lop Pop Sop)=    38     0     5 Idle Costs:   2700.179 Outsource Costs:   1503.624      Idle > Out
+Completed Schedule and Quarter for search step no: 4
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    5574.339 IC=  2518.429 OC=  1574.574 LPB=        37 SB=         5
+Master cost=   13854.34 Netmastercost=    8280.00 (Lop Pop Sop)=    37     0     5 Idle Costs:   2518.429 Outsource Costs:   1574.574      Idle > Out
+Completed Schedule and Quarter for search step no: 5
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    5451.093 IC=  2344.683 OC=  1650.326 LPB=        36 SB=         5
+Master cost=   13491.09 Netmastercost=    8040.00 (Lop Pop Sop)=    36     0     5 Idle Costs:   2344.683 Outsource Costs:   1650.326      Idle > Out
+Completed Schedule and Quarter for search step no: 6
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    5339.634 IC=  2179.355 OC=  1731.129 LPB=        35 SB=         5
+Master cost=   13139.63 Netmastercost=    7800.00 (Lop Pop Sop)=    35     0     5 Idle Costs:   2179.355 Outsource Costs:   1731.129      Idle > Out
+Completed Schedule and Quarter for search step no: 7
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    5240.441 IC=  2022.789 OC=  1817.190 LPB=        34 SB=         5
+Master cost=   12800.44 Netmastercost=    7560.00 (Lop Pop Sop)=    34     0     5 Idle Costs:   2022.789 Outsource Costs:   1817.190      Idle > Out
+Completed Schedule and Quarter for search step no: 8
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    5153.885 IC=  1875.248 OC=  1908.665 LPB=        33 SB=         5
+Master cost=   12473.88 Netmastercost=    7320.00 (Lop Pop Sop)=    33     0     5 Idle Costs:   1875.248 Outsource Costs:   1908.665     Idle <= Out
+Switch back up2, $   7320.00   33    0    5 Flags:    1    1    1
+Completed Schedule and Quarter for search step no: 9
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    5080.228 IC=  1736.922 OC=  2005.670 LPB=        34 SB=         5
+Master cost=   12640.23 Netmastercost=    7560.00 (Lop Pop Sop)=    34     0     5 Idle Costs:   1736.922 Outsource Costs:   2005.670     Idle <= Out
+Switch back up2, $   7560.00   34    0    5 Flags:    1    1    1
+Completed Schedule and Quarter for search step no: 10
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    5153.885 IC=  1875.248 OC=  1908.665 LPB=        35 SB=         5
+Master cost=   12953.88 Netmastercost=    7800.00 (Lop Pop Sop)=    35     0     5 Idle Costs:   1875.248 Outsource Costs:   1908.665     Idle <= Out
+Switch back up2, $   7800.00   35    0    5 Flags:    1    1    1
+Completed Schedule and Quarter for search step no: 11
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    5240.441 IC=  2022.789 OC=  1817.190 LPB=        36 SB=         5
+Master cost=   13280.44 Netmastercost=    8040.00 (Lop Pop Sop)=    36     0     5 Idle Costs:   2022.789 Outsource Costs:   1817.190      Idle > Out
+Switch back down2, $   8040.00   36    0    5 Flags:    1    1    1
+   Gonna break.  13280.441  15436.339   2022.789   1817.190   36    0    5 Flags:    1    1    1
+Adjusted settings for rerunning subproblem 1 (L,P,S): 33 0 5 : Bounds: 33 5
+   q=  1 (L P S EQ EO ECQ ECO)=   33    0    5      0.05     12.05      2.61    361.57    ERcost=    644.660
+   q=  2 (L P S EQ EO ECQ ECO)=   33    0    5      0.00     32.00      0.00    960.00    ERcost=   1241.000
+   q=  3 (L P S EQ EO ECQ ECO)=   33    0    5     15.66      7.71    782.75    231.41    ERcost=   1138.139
+   q=  4 (L P S EQ EO ECQ ECO)=   33    0    5      1.69      3.69     84.40    110.65    ERcost=    459.145
+   q=  5 (L P S EQ EO ECQ ECO)=   33    0    5     15.66      7.71    782.75    231.41    ERcost=   1138.139
+   q=  6 (L P S EQ EO ECQ ECO)=   33    0    5      1.69      3.69     84.40    110.65    ERcost=    459.145
+
+FINAL RESULTS
+
+Beginning results for Horizon Period 4
+Combined Cost: $  15248.63 LPS: 41 0 5 Bounds: 41 5 Recourse Cost: $   6008.63 IOCars: 61 45 IOCost: $ 3085.78 $ 1374.99
+
+Summary results for Horizon Period 4
+Combined Cost: $  12400.23 LPS: 33 0 5 Bounds: 33 5 Recourse Cost: $   5080.23 IOCars: 34 66 IOCost: $ 1736.92 $ 2005.67
+
+END RUN for Period 4 *****************************************************
+Forecast for QTR: 5 = 325
+BEGIN RUN for horizon 5 with Forecast 325 *****************************************************
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6506.453 IC=    78.905 OC=  4757.344 LPB=        33 SB=         5
+Master cost=   13826.45 Netmastercost=    7320.00 (Lop Pop Sop)=    33     0     5 Idle Costs:     78.905 Outsource Costs:   4757.344     Idle <= Out
+Completed Schedule and Quarter for search step no: 1
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6506.453 IC=    78.905 OC=  4757.344 LPB=        34 SB=         5
+Master cost=   14066.45 Netmastercost=    7560.00 (Lop Pop Sop)=    34     0     5 Idle Costs:     78.905 Outsource Costs:   4757.344     Idle <= Out
+Completed Schedule and Quarter for search step no: 2
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6421.032 IC=   103.604 OC=  4592.164 LPB=        35 SB=         5
+Master cost=   14221.03 Netmastercost=    7800.00 (Lop Pop Sop)=    35     0     5 Idle Costs:    103.604 Outsource Costs:   4592.164     Idle <= Out
+Completed Schedule and Quarter for search step no: 3
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6344.211 IC=   134.446 OC=  4430.669 LPB=        36 SB=         5
+Master cost=   14384.21 Netmastercost=    8040.00 (Lop Pop Sop)=    36     0     5 Idle Costs:    134.446 Outsource Costs:   4430.669     Idle <= Out
+Completed Schedule and Quarter for search step no: 4
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6276.757 IC=   171.979 OC=  4273.189 LPB=        37 SB=         5
+Master cost=   14556.76 Netmastercost=    8280.00 (Lop Pop Sop)=    37     0     5 Idle Costs:    171.979 Outsource Costs:   4273.189     Idle <= Out
+Completed Schedule and Quarter for search step no: 5
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6219.206 IC=   216.586 OC=  4119.953 LPB=        38 SB=         5
+Master cost=   14739.21 Netmastercost=    8520.00 (Lop Pop Sop)=    38     0     5 Idle Costs:    216.586 Outsource Costs:   4119.953     Idle <= Out
+Completed Schedule and Quarter for search step no: 6
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6171.836 IC=   268.464 OC=  3971.079 LPB=        39 SB=         5
+Master cost=   14931.84 Netmastercost=    8760.00 (Lop Pop Sop)=    39     0     5 Idle Costs:    268.464 Outsource Costs:   3971.079     Idle <= Out
+Completed Schedule and Quarter for search step no: 7
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6134.675 IC=   327.635 OC=  3826.582 LPB=        40 SB=         5
+Master cost=   15134.67 Netmastercost=    9000.00 (Lop Pop Sop)=    40     0     5 Idle Costs:    327.635 Outsource Costs:   3826.582     Idle <= Out
+Completed Schedule and Quarter for search step no: 8
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6107.534 IC=   393.963 OC=  3686.379 LPB=        41 SB=         5
+Master cost=   15347.53 Netmastercost=    9240.00 (Lop Pop Sop)=    41     0     5 Idle Costs:    393.963 Outsource Costs:   3686.379     Idle <= Out
+Completed Schedule and Quarter for search step no: 9
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6090.065 IC=   467.199 OC=  3550.321 LPB=        42 SB=         5
+Master cost=   15570.07 Netmastercost=    9480.00 (Lop Pop Sop)=    42     0     5 Idle Costs:    467.199 Outsource Costs:   3550.321     Idle <= Out
+Completed Schedule and Quarter for search step no: 10
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6081.821 IC=   547.025 OC=  3418.216 LPB=        43 SB=         5
+Master cost=   15801.82 Netmastercost=    9720.00 (Lop Pop Sop)=    43     0     5 Idle Costs:    547.025 Outsource Costs:   3418.216     Idle <= Out
+Completed Schedule and Quarter for search step no: 11
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6082.333 IC=   633.105 OC=  3289.864 LPB=        44 SB=         5
+Master cost=   16042.33 Netmastercost=    9960.00 (Lop Pop Sop)=    44     0     5 Idle Costs:    633.105 Outsource Costs:   3289.864     Idle <= Out
+Completed Schedule and Quarter for search step no: 12
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6091.172 IC=   725.133 OC=  3165.081 LPB=        45 SB=         5
+Master cost=   16291.17 Netmastercost=   10200.00 (Lop Pop Sop)=    45     0     5 Idle Costs:    725.133 Outsource Costs:   3165.081     Idle <= Out
+Completed Schedule and Quarter for search step no: 13
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6107.999 IC=   822.866 OC=  3043.721 LPB=        46 SB=         5
+Master cost=   16548.00 Netmastercost=   10440.00 (Lop Pop Sop)=    46     0     5 Idle Costs:    822.866 Outsource Costs:   3043.721     Idle <= Out
+Completed Schedule and Quarter for search step no: 14
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6132.596 IC=   926.150 OC=  2925.691 LPB=        47 SB=         5
+Master cost=   16812.60 Netmastercost=   10680.00 (Lop Pop Sop)=    47     0     5 Idle Costs:    926.150 Outsource Costs:   2925.691     Idle <= Out
+Completed Schedule and Quarter for search step no: 15
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6164.878 IC=  1034.923 OC=  2810.955 LPB=        48 SB=         5
+Master cost=   17084.88 Netmastercost=   10920.00 (Lop Pop Sop)=    48     0     5 Idle Costs:   1034.923 Outsource Costs:   2810.955     Idle <= Out
+Completed Schedule and Quarter for search step no: 16
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6204.883 IC=  1149.212 OC=  2699.528 LPB=        49 SB=         5
+Master cost=   17364.88 Netmastercost=   11160.00 (Lop Pop Sop)=    49     0     5 Idle Costs:   1149.212 Outsource Costs:   2699.528     Idle <= Out
+Completed Schedule and Quarter for search step no: 17
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6252.745 IC=  1269.114 OC=  2591.469 LPB=        50 SB=         5
+Master cost=   17652.75 Netmastercost=   11400.00 (Lop Pop Sop)=    50     0     5 Idle Costs:   1269.114 Outsource Costs:   2591.469     Idle <= Out
+Completed Schedule and Quarter for search step no: 18
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6308.663 IC=  1394.769 OC=  2486.863 LPB=        51 SB=         5
+Master cost=   17948.66 Netmastercost=   11640.00 (Lop Pop Sop)=    51     0     5 Idle Costs:   1394.769 Outsource Costs:   2486.863     Idle <= Out
+Completed Schedule and Quarter for search step no: 19
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6372.853 IC=  1526.334 OC=  2385.801 LPB=        52 SB=         5
+Master cost=   18252.85 Netmastercost=   11880.00 (Lop Pop Sop)=    52     0     5 Idle Costs:   1526.334 Outsource Costs:   2385.801     Idle <= Out
+Completed Schedule and Quarter for search step no: 20
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6445.512 IC=  1663.947 OC=  2288.369 LPB=        53 SB=         5
+Master cost=   18565.51 Netmastercost=   12120.00 (Lop Pop Sop)=    53     0     5 Idle Costs:   1663.947 Outsource Costs:   2288.369     Idle <= Out
+Completed Schedule and Quarter for search step no: 21
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6526.782 IC=  1807.711 OC=  2194.628 LPB=        54 SB=         5
+Master cost=   18886.78 Netmastercost=   12360.00 (Lop Pop Sop)=    54     0     5 Idle Costs:   1807.711 Outsource Costs:   2194.628     Idle <= Out
+Completed Schedule and Quarter for search step no: 22
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6616.724 IC=  1957.670 OC=  2104.603 LPB=        55 SB=         5
+Master cost=   19216.72 Netmastercost=   12600.00 (Lop Pop Sop)=    55     0     5 Idle Costs:   1957.670 Outsource Costs:   2104.603     Idle <= Out
+Completed Schedule and Quarter for search step no: 23
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6715.301 IC=  2113.796 OC=  2018.279 LPB=        56 SB=         5
+Master cost=   19555.30 Netmastercost=   12840.00 (Lop Pop Sop)=    56     0     5 Idle Costs:   2113.796 Outsource Costs:   2018.279      Idle > Out
+Switch back down2, $  12840.00   56    0    5 Flags:    1    1    0
+Completed Schedule and Quarter for search step no: 24
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6827.891 IC=  2275.995 OC=  1935.598 LPB=        55 SB=         5
+Master cost=   19427.89 Netmastercost=   12600.00 (Lop Pop Sop)=    55     0     5 Idle Costs:   2275.995 Outsource Costs:   1935.598      Idle > Out
+Switch back down2, $  12600.00   55    0    5 Flags:    1    1    0
+Completed Schedule and Quarter for search step no: 25
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6715.301 IC=  2113.796 OC=  2018.279 LPB=        54 SB=         5
+Master cost=   19075.30 Netmastercost=   12360.00 (Lop Pop Sop)=    54     0     5 Idle Costs:   2113.796 Outsource Costs:   2018.279      Idle > Out
+Switch back down2, $  12360.00   54    0    5 Flags:    1    1    0
+Completed Schedule and Quarter for search step no: 26
+Starting Scheduling Run 
+Starting Quarter (Master) Problem with recourse cost =    6616.724 IC=  1957.670 OC=  2104.603 LPB=        53 SB=         5
+Master cost=   18736.72 Netmastercost=   12120.00 (Lop Pop Sop)=    53     0     5 Idle Costs:   1957.670 Outsource Costs:   2104.603     Idle <= Out
+Switch back up2, $  12120.00   53    0    5 Flags:    1    1    0
+Set mins to last before break.  18736.724  13280.441   1957.670   2104.603   53    0    5 Flags:    1    1    0
+Adjusted settings for rerunning subproblem 1 (L,P,S): 53 0 5 : Bounds: 53 5
+   q=  1 (L P S EQ EO ECQ ECO)=   53    0    5      0.04     17.04      1.79    511.08    ERcost=    993.510
+   q=  2 (L P S EQ EO ECQ ECO)=   53    0    5      0.00     49.50      0.00   1485.00    ERcost=   1965.999
+   q=  3 (L P S EQ EO ECQ ECO)=   53    0    5     15.64      0.14    782.23      4.34    ERcost=   1111.111
+   q=  4 (L P S EQ EO ECQ ECO)=   53    0    5      2.41      3.16    120.73     94.94    ERcost=    672.525
+   q=  5 (L P S EQ EO ECQ ECO)=   53    0    5     15.64      0.14    782.23      4.34    ERcost=   1111.111
+   q=  6 (L P S EQ EO ECQ ECO)=   53    0    5      2.41      3.16    120.73     94.94    ERcost=    672.525
+
+FINAL RESULTS
+
+Beginning results for Horizon Period 5
+Combined Cost: $  13826.45 LPS: 33 0 5 Bounds: 33 5 Recourse Cost: $   6506.45 IOCars: 1 158 IOCost: $   78.90 $ 4757.34
+
+Summary results for Horizon Period 5
+Combined Cost: $  18976.72 LPS: 53 0 5 Bounds: 53 5 Recourse Cost: $   6526.78 IOCars: 39 70 IOCost: $ 1957.67 $ 2104.60
+
+END RUN for Period 5 *****************************************************
+
+Acceptable Idle Rate: 10.00% Outsource Rate: 10.00%
+
+
+OPTIMAL RESULTS FOR HORIZONS
+  h    LCars    PCars   SLCars   SPCars CombinedCost ERecourseCost IdleCars OutsCars  IdleCost  OutsCost
+  0       48        0        5        0     16865.71     5945.71       32       69       1606.96   2074.19
+  1       65        0        5        0     23044.96     8044.96       46       86       2310.60   2582.71
+  2       49        0        5        0     17212.02     6052.02       33       69       1661.47   2076.89
+  3       41        0        5        0     14541.71     5301.71       30       64       1511.25   1926.97
+  4       33        0        5        0     12400.23     5080.23       34       66       1736.92   2005.67
+  5       53        0        5        0     18976.72     6526.78       39       70       1957.67   2104.60
+INITIAL RESULTS FOR HORIZONS
+  h    LCars    PCars    SCars          CombinedCost ERecourseCost IdleCars OutsCars  IdleCost  OutsCost      LPB       SB
+  0       69        0        5        0     25238.68     9278.68      115       26       5784.49    800.71
+  1       69        0        5        0     24430.79     8470.79       59       75       2957.62   2250.92
+  2       65        0        5        0     23386.83     8386.83       93       33       4697.33   1018.41
+  3       49        0        5        0     17399.18     6239.18       57       43       2866.59   1300.18
+  4       41        0        5        0     15248.63     6008.63       61       45       3085.78   1374.99
+  5       33        0        5        0     13826.45     6506.45        1      158         78.90   4757.34
+END OF RESULTS FOR HORIZONS
+: Combined_Cost Expected_Recourse_Cost Expected_Idle Expected_Outsource Expected_Idle_Cost Expected_Outsource_Cost    :=
+0     16865.7           5945.71            32.1393         69.1397            1606.96               2074.19
+1     23045             8044.96            46.212          86.0902            2310.6                2582.71
+2     17212             6052.02            33.2293         69.2296            1661.47               2076.89
+3     14541.7           5301.71            30.2251         64.2324            1511.25               1926.97
+4     12400.2           5080.23            34.7384         66.8557            1736.92               2005.67
+5     18976.7           6526.78            39.1534         70.1534            1957.67               2104.6
+;
+
+Nocars[0,c] [*] :=
+     Leased  48
+  Purchased   0
+Subleased_L   5
+Subleased_P   0
+;
+
+Nocars[1,c] [*] :=
+     Leased  65
+  Purchased   0
+Subleased_L   5
+Subleased_P   0
+;
+
+Nocars[2,c] [*] :=
+     Leased  49
+  Purchased   0
+Subleased_L   5
+Subleased_P   0
+;
+
+Nocars[3,c] [*] :=
+     Leased  41
+  Purchased   0
+Subleased_L   5
+Subleased_P   0
+;
+
+Nocars[4,c] [*] :=
+     Leased  33
+  Purchased   0
+Subleased_L   5
+Subleased_P   0
+;
+
+Nocars[5,c] [*] :=
+     Leased  53
+  Purchased   0
+Subleased_L   5
+Subleased_P   0
+;
+
